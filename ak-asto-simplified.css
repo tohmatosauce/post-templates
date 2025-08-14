@@ -1,140 +1,408 @@
+@charset "UTF-8";
 /* ===================
 arknights template made for astoria. 
 the site used a paid font as a prominent design element that i'm not putting on codepen lmao so that's why the font might look weird.
 the arknights icon set used was my own making tho & its free for anyone to use or play around with. my github has the .ai files, but if you just want the font, you can get it here --> https://tohmatosauce.github.io/ak-branch-icons/
 ==================== */
-
-@function mix($c1, $c2, $amt:50%) {
- @return color-mix(in srgb, $c1 $amt, $c2);
-}
-@function alpha($c1, $amt:50%) {
- @return color-mix(in srgb, $c1 $amt, transparent)
-}
-@function lighten($c1, $amt:50%) {
- $light1: #fff;
- @return color-mix(in srgb, $light1 $amt, $c1)
-}
-@function darken($c1, $amt:50%) {
- $dark1: #000;
- @return color-mix(in srgb, $dark1 $amt, $c1)
-}
-
-$p: min(50px, 4.6vw);
-$m: max(-15px, -1.5vw);
-$a: var(--main);
-$bg1: var(--bg1, #e3e3e3);
-$bg2: var(--bg2, #d7d7d7);
-$inv1: var(--bgInverse, #595959);
-$inv2: var(--bgInverse2, #444);
-$inv3: var(--bgInverse3, #444);
-$body: var(--body, "Noto Serif");
-$titleSB: var(--titleSB, "Distrela Semibold");
-$titleB: var(--titleB, "Distrela Bold");
-$titleEB: var(--titleEB, "Distrela Extra Bold");
-$viv2: var(--astorRender2,  url(https://i.ibb.co/v6YjpVgR/Vivi-Transparent2.png));
-$viv3: var(--astorBorder, url(https://i.ibb.co/GH0HwDj/Vivi2.png));
-$viv4: url(https://i.ibb.co/ycFpbpPd/Vivi-Transparent-Huge-Aaaaaah.png);
-$rose: var(--roseImg, url(https://i.ibb.co/cYWcmTb/Rose-Small.png));
-$rosef: var(--roseFill, url(https://i.ibb.co/W6gzSfF/Rose-Small-Fill.png));
-$lo: var(--lightOutline, $bg1 1px 0px 0px, $bg1 0.540302px 0.841471px 0px,
-    $bg1 -0.416147px 0.909297px 0px, $bg1 -0.989993px 0.14112px 0px,
-    $bg1 -0.653644px -0.756803px 0px,
-    $bg1 0.283662px -0.958924px 0px, $bg1 0.96017px -0.279416px 0px);
-$do: var(--darkOutline, $inv1 1px 0px 0px,
-    $inv1 0.540302px 0.841471px 0px,
-    $inv1 -0.416147px 0.909297px 0px,
-    $inv1 -0.989993px 0.14112px 0px,
-    $inv1 -0.653644px -0.756803px 0px,
-    $inv1 0.283662px -0.958924px 0px,
-    $inv1 0.96017px -0.279416px 0px);
-
 @import url("//cdn.jsdelivr.net/gh/tohmatosauce/ak-branch-icons@master/font/style.css");
-#ak_arcade{--main: var(--accent, #897666);position:relative;padding: $p;font: 13px / 20px $body;text-align: justify;letter-spacing: 0.25px;border:1px solid $a;border-image:linear-gradient(25deg, lighten($a, 25%), $bg1) 4;color:$inv1;text-shadow: 0px 0px transparent;border:2px solid $bg1;outline:1px solid $inv1;margin:35px auto 0;
-}
-#ak_arcade:before{content:'operator records';position:absolute;bottom:calc(100% + 5px);left:0;width:100%;padding:50px 0;margin:-50px 0;padding-right:min(35px, 5vw);font:50px/.5 $titleEB;text-shadow:$do;z-index:1;color:$bg1;text-align:right;box-sizing:border-box}
-
-#ak_arcade .arc_border{
- background:$inv1;z-index:0;position:absolute;width:100%;height:100%;top:0;left:0;clip-path:inset(0);
- &:before{content:'';top:0;left:0;width:100%;height:100%;position:fixed;background-color:$a;mask:$viv2 center/cover;pointer-events:none;}
-}
-#ak_arcade .arc_body{position:relative;z-index:1;background: radial-gradient(alpha($bg1,25%) 1.5px, transparent 1.5px) center/25px 25px,linear-gradient(135deg, $bg1 25%, mix($a,$bg1)) 0% 0%/ 400% 100%;padding:35px $p;border:2px solid $bg1;outline:1px solid $inv1;}
-#ak_arcade .arc_cover{position:absolute;top:0;left:0;background:$inv1;width:100%;height:125px;border-bottom:2px solid $bg2;
- &::before{content:'';position:absolute;top:0;left:0;background-image:var(--cover, $viv3);background-color:$a;background-size:cover;background-position:center;width:100%;height:125px;mix-blend-mode:lighten;background-blend-mode: luminosity;}}
-
-#ak_arcade h1{
- display:grid;grid-template-columns:min-content auto;grid-template-rows:0 auto auto;gap:0px 18px;position:relative;z-index:1;margin:60px 0 0;align-items: flex-start;
- span.ak{grid-column:1;grid-row:1/span 3;width:100px;height:100px;position:relative;top:-10px;display:grid;place-items:center;font-size:80px;text-shadow:$lo}
- &:before, &:after {content:'';display:block;width:100%;height:50px;grid-row:1; grid-column:2;margin-bottom:-50px;}
- &:before {background:$inv1;mask: $rosef 100% 0% / contain no-repeat;}
- &:after {background:$a;mask:$rose 100% 0% / contain no-repeat;}
- 
-}
-#ak_arcade .arc_name{grid-column:2;grid-row:2;font:80px/0.8 $titleB;margin-bottom:8px;padding-top:20px;margin-top:-35px;display:grid;text-shadow:$lo;text-align:left;
- b{font:900 12px/0.8 $body;text-shadow: 0 0 transparent;text-transform:uppercase;background:$inv1;color:$bg1;padding:15px;justify-self:flex-start;outline:2px solid $bg1;outline-offset:-3px;letter-spacing:1px;margin-top:8px;}}
-#ak_arcade .arc_stars{grid-column:2;grid-row:3;display:flex;
- star{font-family: "Phosphor-Fill";font-size: 21px;transform: rotate(8deg);margin-right: -4.5px; margin-left: 0;display:inline-block;color:$a;text-shadow:$lo;}
- star::before{content: "\e46a";}}
-
-#ak_arcade h2{margin:15px $m 25px;display:flex;justify-content:flex-end;gap:2px;line-height:1;position:relative;
- &:before{content:'';display:block;width:44%;height:3px;background:$bg2;margin: 0 auto;align-self:center;}
- span:nth-of-type(2){color:$bg1;background:$inv1;padding:10px;display:grid;place-items:center;outline:1px $bg1 solid;outline-offset:-2px;}
- span:nth-of-type(1){padding:10px 14.4px;background:$a;color:$bg1;font-size:12px;font-weight:900;text-transform:uppercase;display:grid;place-items:center;outline:1px $bg1 solid;outline-offset:-2px;}}
-
-#ak_arcade h3{margin:0 $m;padding:20px;background:linear-gradient(90deg, $a, $inv1 25%) 100% 100% / 100% 100%;z-index:0;color:$bg1;text-transform:uppercase;letter-spacing:.5px;position:relative;outline:1px solid $bg1;outline-offset:-2px;}
-// #ak_arcade h3::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:$a;pointer-events:none;mask:$viv2 center/cover;z-index:-1;}
-#ak_arcade h3::before{content:'&';opacity:.5;}
-
-#ak_arcade .arc_table{display:grid;grid-template-columns: 125px 1fr;gap:10px 20px;margin:2.5px 0 2.5px;padding:25px 0px;
- & > b{text-transform:uppercase;font-size:11px;line-height:1.4;font-weight:900;color:$a;text-align:left;}
- & > span{white-space:pre-line}
- h4{grid-column:1/-1;text-transform:uppercase;font-size:14px;border-bottom:2px solid $a;margin:10px 0 0;padding:0 4px 5.5px;justify-self:flex-start;}
- blockquote{grid-column:1/-1;margin:7.5px 10px;white-space:pre-line}
- 
- &#file > b{color:$bg1;border:1px solid $a; outline:1px solid lighten($bg1, 20%);outline-offset:-2px;padding:10px;line-height:1;align-self:flex-start;background:$a;font-size:11px}
- 
- &#physical{gap:8px 0px;grid-template-columns:100px 1fr 100px 1fr;
-  &>b{background:$inv1;color:$bg1;padding:8px 12px;outline: 1px var(--bg1, #e3e3e3) solid;outline-offset: -2px;display:grid;align-items:center;align-self:stretch;font-size:10px;}
-  &>b:nth-of-type(even) {background:$a;}
-  &>span{background:$bg2;text-transform:capitalize;margin-left:4px;margin-right:10px;color:$inv1;padding:10px;font-weight:600;outline: 1px var(--bg1, #e3e3e3) solid;outline-offset: -2px;display:grid;align-items:center;}
- }
- 
- &#dialogue{
-  &>b{background:$inv1;color:$bg1;padding:10px;outline: 1px var(--bg1, #e3e3e3) solid;outline-offset: -2px;display:grid;align-items:center;align-self:stretch}
-  &>b:nth-of-type(even){background:$a;}
- }
- 
+#ak_arcade {
+  --main: var(--accent, #897666);
+  position: relative;
+  padding: min(50px, 4.6vw);
+  font: 13px/20px var(--body, "Noto Serif");
+  text-align: justify;
+  letter-spacing: 0.25px;
+  border: 1px solid var(--main);
+  -o-border-image: linear-gradient(25deg, color-mix(in srgb, #fff 25%, var(--main)), var(--bg1, #e3e3e3)) 4;
+     border-image: linear-gradient(25deg, color-mix(in srgb, #fff 25%, var(--main)), var(--bg1, #e3e3e3)) 4;
+  color: var(--bgInverse, #595959);
+  text-shadow: 0px 0px transparent;
+  border: 2px solid var(--bg1, #e3e3e3);
+  outline: 1px solid var(--bgInverse, #595959);
+  margin: 35px auto 0;
 }
 
-#ak_arcade #QUOTE-WRAP{
-  display: grid;margin:0 0 $p;width:inherit;
-  tr:nth-of-type(1){display:none}
-  tbody, tr, td{display: block;}
-  #QUOTE{
-   background:initial;color: $inv1;
-   border:unset;font: 600 13px / 1.3 $body;text-shadow:initial;text-align: center;padding: 20px min(50px, 5vw);position: relative;white-space:pre-line;
-   i{color:mix($inv1, $bg1, 80%)}
-  }
+#ak_arcade:before {
+  content: "operator records";
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 0;
+  width: 100%;
+  padding: 50px 0;
+  margin: -50px 0;
+  padding-right: min(35px, 5vw);
+  font: 50px/0.5 var(--titleEB, "Distrela Extra Bold");
+  text-shadow: var(--darkOutline, var(--bgInverse, #595959) 1px 0px 0px, var(--bgInverse, #595959) 0.540302px 0.841471px 0px, var(--bgInverse, #595959) -0.416147px 0.909297px 0px, var(--bgInverse, #595959) -0.989993px 0.14112px 0px, var(--bgInverse, #595959) -0.653644px -0.756803px 0px, var(--bgInverse, #595959) 0.283662px -0.958924px 0px, var(--bgInverse, #595959) 0.96017px -0.279416px 0px);
+  z-index: 1;
+  color: var(--bg1, #e3e3e3);
+  text-align: right;
+  box-sizing: border-box;
 }
 
-.darkmode{
- #ak_arcade{--bgInverse3: #bfbfbf; --bg2: #333; }
- #ak_arcade .arc_body{outline:1px solid $bg1;border-color:$inv3}
- #ak_arcade .arc_cover,#ak_arcade .arc_table#physical > b:nth-of-type(even), #ak_arcade .arc_table#dialogue > b:nth-of-type(even){background-color:$a}
- #ak_arcade .arc_border, #ak_arcade .arc_cover::before, #ak_arcade h1::before, #ak_arcade .arc_name b, #ak_arcade h2 span:nth-of-type(2),#ak_arcade .arc_table#physical > b, #ak_arcade .arc_table#dialogue > b {background-color:$inv3}
- #ak_arcade .arc_name, #ak_arcade h1 span.ak, {color:$inv3}
- #ak_arcade h2 span:nth-of-type(1),#ak_arcade h3, #ak_arcade .arc_table#physical > b, #ak_arcade .arc_table#dialogue > b, #ak_arcade .arc_table#file > b, #ak_arcade .arc_name b{color:$bg2}
- #ak_arcade h3{background:linear-gradient(90deg, var(--main), $inv3) 100% 100%/100% 100%}
+#ak_arcade .arc_border {
+  background: var(--bgInverse, #595959);
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-clip-path: inset(0);
+          clip-path: inset(0);
+}
+#ak_arcade .arc_border:before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: var(--main);
+  -webkit-mask: var(--astorRender2, url(https://i.ibb.co/v6YjpVgR/Vivi-Transparent2.png)) center/cover;
+          mask: var(--astorRender2, url(https://i.ibb.co/v6YjpVgR/Vivi-Transparent2.png)) center/cover;
+  pointer-events: none;
+}
+
+#ak_arcade .arc_body {
+  position: relative;
+  z-index: 1;
+  background: radial-gradient(color-mix(in srgb, var(--bg1, #e3e3e3) 25%, transparent) 1.5px, transparent 1.5px) center/25px 25px, linear-gradient(135deg, var(--bg1, #e3e3e3) 25%, color-mix(in srgb, var(--main) 50%, var(--bg1, #e3e3e3))) 0% 0%/400% 100%;
+  padding: 35px min(50px, 4.6vw);
+  border: 2px solid var(--bg1, #e3e3e3);
+  outline: 1px solid var(--bgInverse, #595959);
+}
+
+#ak_arcade .arc_cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--bgInverse, #595959);
+  width: 100%;
+  height: 125px;
+  border-bottom: 2px solid var(--bg2, #d7d7d7);
+}
+#ak_arcade .arc_cover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: var(--cover, var(--astorBorder, url(https://i.ibb.co/GH0HwDj/Vivi2.png)));
+  background-color: var(--main);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 125px;
+  mix-blend-mode: lighten;
+  background-blend-mode: luminosity;
+}
+
+#ak_arcade h1 {
+  display: grid;
+  grid-template-columns: -webkit-min-content auto;
+  grid-template-columns: min-content auto;
+  grid-template-rows: 0 auto auto;
+  gap: 0px 18px;
+  position: relative;
+  z-index: 1;
+  margin: 60px 0 0;
+  align-items: flex-start;
+}
+#ak_arcade h1 span.ak {
+  grid-column: 1;
+  grid-row: 1/span 3;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: -10px;
+  display: grid;
+  place-items: center;
+  font-size: 80px;
+  text-shadow: var(--lightOutline, var(--bg1, #e3e3e3) 1px 0px 0px, var(--bg1, #e3e3e3) 0.540302px 0.841471px 0px, var(--bg1, #e3e3e3) -0.416147px 0.909297px 0px, var(--bg1, #e3e3e3) -0.989993px 0.14112px 0px, var(--bg1, #e3e3e3) -0.653644px -0.756803px 0px, var(--bg1, #e3e3e3) 0.283662px -0.958924px 0px, var(--bg1, #e3e3e3) 0.96017px -0.279416px 0px);
+}
+#ak_arcade h1:before, #ak_arcade h1:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 50px;
+  grid-row: 1;
+  grid-column: 2;
+  margin-bottom: -50px;
+}
+#ak_arcade h1:before {
+  background: var(--bgInverse, #595959);
+  -webkit-mask: var(--roseFill, url(https://i.ibb.co/W6gzSfF/Rose-Small-Fill.png)) 100% 0%/contain no-repeat;
+          mask: var(--roseFill, url(https://i.ibb.co/W6gzSfF/Rose-Small-Fill.png)) 100% 0%/contain no-repeat;
+}
+#ak_arcade h1:after {
+  background: var(--main);
+  -webkit-mask: var(--roseImg, url(https://i.ibb.co/cYWcmTb/Rose-Small.png)) 100% 0%/contain no-repeat;
+          mask: var(--roseImg, url(https://i.ibb.co/cYWcmTb/Rose-Small.png)) 100% 0%/contain no-repeat;
+}
+
+#ak_arcade .arc_name {
+  grid-column: 2;
+  grid-row: 2;
+  font: 80px/0.8 var(--titleB, "Distrela Bold");
+  margin-bottom: 8px;
+  padding-top: 20px;
+  margin-top: -35px;
+  display: grid;
+  text-shadow: var(--lightOutline, var(--bg1, #e3e3e3) 1px 0px 0px, var(--bg1, #e3e3e3) 0.540302px 0.841471px 0px, var(--bg1, #e3e3e3) -0.416147px 0.909297px 0px, var(--bg1, #e3e3e3) -0.989993px 0.14112px 0px, var(--bg1, #e3e3e3) -0.653644px -0.756803px 0px, var(--bg1, #e3e3e3) 0.283662px -0.958924px 0px, var(--bg1, #e3e3e3) 0.96017px -0.279416px 0px);
+  text-align: left;
+}
+#ak_arcade .arc_name b {
+  font: 900 12px/0.8 var(--body, "Noto Serif");
+  text-shadow: 0 0 transparent;
+  text-transform: uppercase;
+  background: var(--bgInverse, #595959);
+  color: var(--bg1, #e3e3e3);
+  padding: 15px;
+  justify-self: flex-start;
+  outline: 2px solid var(--bg1, #e3e3e3);
+  outline-offset: -3px;
+  letter-spacing: 1px;
+  margin-top: 8px;
+}
+
+#ak_arcade .arc_stars {
+  grid-column: 2;
+  grid-row: 3;
+  display: flex;
+}
+#ak_arcade .arc_stars star {
+  font-family: "Phosphor-Fill";
+  font-size: 21px;
+  transform: rotate(8deg);
+  margin-right: -4.5px;
+  margin-left: 0;
+  display: inline-block;
+  color: var(--main);
+  text-shadow: var(--lightOutline, var(--bg1, #e3e3e3) 1px 0px 0px, var(--bg1, #e3e3e3) 0.540302px 0.841471px 0px, var(--bg1, #e3e3e3) -0.416147px 0.909297px 0px, var(--bg1, #e3e3e3) -0.989993px 0.14112px 0px, var(--bg1, #e3e3e3) -0.653644px -0.756803px 0px, var(--bg1, #e3e3e3) 0.283662px -0.958924px 0px, var(--bg1, #e3e3e3) 0.96017px -0.279416px 0px);
+}
+#ak_arcade .arc_stars star::before {
+  content: "";
+}
+
+#ak_arcade h2 {
+  margin: 15px max(-15px, -1.5vw) 25px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2px;
+  line-height: 1;
+  position: relative;
+}
+#ak_arcade h2:before {
+  content: "";
+  display: block;
+  width: 44%;
+  height: 3px;
+  background: var(--bg2, #d7d7d7);
+  margin: 0 auto;
+  align-self: center;
+}
+#ak_arcade h2 span:nth-of-type(2) {
+  color: var(--bg1, #e3e3e3);
+  background: var(--bgInverse, #595959);
+  padding: 10px;
+  display: grid;
+  place-items: center;
+  outline: 1px var(--bg1, #e3e3e3) solid;
+  outline-offset: -2px;
+}
+#ak_arcade h2 span:nth-of-type(1) {
+  padding: 10px 14.4px;
+  background: var(--main);
+  color: var(--bg1, #e3e3e3);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  display: grid;
+  place-items: center;
+  outline: 1px var(--bg1, #e3e3e3) solid;
+  outline-offset: -2px;
+}
+
+#ak_arcade h3 {
+  margin: 0 max(-15px, -1.5vw);
+  padding: 20px;
+  background: linear-gradient(90deg, var(--main), var(--bgInverse, #595959) 25%) 100% 100%/100% 100%;
+  z-index: 0;
+  color: var(--bg1, #e3e3e3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  outline: 1px solid var(--bg1, #e3e3e3);
+  outline-offset: -2px;
+}
+
+#ak_arcade h3::before {
+  content: "&";
+  opacity: 0.5;
+}
+
+#ak_arcade .arc_table {
+  display: grid;
+  grid-template-columns: 125px 1fr;
+  gap: 10px 20px;
+  margin: 2.5px 0 2.5px;
+  padding: 25px 0px;
+}
+#ak_arcade .arc_table > b {
+  text-transform: uppercase;
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 900;
+  color: var(--main);
+  text-align: left;
+}
+#ak_arcade .arc_table > span {
+  white-space: pre-line;
+}
+#ak_arcade .arc_table h4 {
+  grid-column: 1/-1;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-bottom: 2px solid var(--main);
+  margin: 10px 0 0;
+  padding: 0 4px 5.5px;
+  justify-self: flex-start;
+}
+#ak_arcade .arc_table blockquote {
+  grid-column: 1/-1;
+  margin: 7.5px 10px;
+  white-space: pre-line;
+}
+#ak_arcade .arc_table#file > b {
+  color: var(--bg1, #e3e3e3);
+  border: 1px solid var(--main);
+  outline: 1px solid color-mix(in srgb, #fff 20%, var(--bg1, #e3e3e3));
+  outline-offset: -2px;
+  padding: 10px;
+  line-height: 1;
+  align-self: flex-start;
+  background: var(--main);
+  font-size: 11px;
+}
+#ak_arcade .arc_table#physical {
+  gap: 8px 0px;
+  grid-template-columns: 100px 1fr 100px 1fr;
+}
+#ak_arcade .arc_table#physical > b {
+  background: var(--bgInverse, #595959);
+  color: var(--bg1, #e3e3e3);
+  padding: 8px 12px;
+  outline: 1px var(--bg1, #e3e3e3) solid;
+  outline-offset: -2px;
+  display: grid;
+  align-items: center;
+  align-self: stretch;
+  font-size: 10px;
+}
+#ak_arcade .arc_table#physical > b:nth-of-type(even) {
+  background: var(--main);
+}
+#ak_arcade .arc_table#physical > span {
+  background: var(--bg2, #d7d7d7);
+  text-transform: capitalize;
+  margin-left: 4px;
+  margin-right: 10px;
+  color: var(--bgInverse, #595959);
+  padding: 10px;
+  font-weight: 600;
+  outline: 1px var(--bg1, #e3e3e3) solid;
+  outline-offset: -2px;
+  display: grid;
+  align-items: center;
+}
+#ak_arcade .arc_table#dialogue > b {
+  background: var(--bgInverse, #595959);
+  color: var(--bg1, #e3e3e3);
+  padding: 10px;
+  outline: 1px var(--bg1, #e3e3e3) solid;
+  outline-offset: -2px;
+  display: grid;
+  align-items: center;
+  align-self: stretch;
+}
+#ak_arcade .arc_table#dialogue > b:nth-of-type(even) {
+  background: var(--main);
+}
+
+#ak_arcade #QUOTE-WRAP {
+  display: grid;
+  margin: 0 0 min(50px, 4.6vw);
+  width: inherit;
+}
+#ak_arcade #QUOTE-WRAP tr:nth-of-type(1) {
+  display: none;
+}
+#ak_arcade #QUOTE-WRAP tbody, #ak_arcade #QUOTE-WRAP tr, #ak_arcade #QUOTE-WRAP td {
+  display: block;
+}
+#ak_arcade #QUOTE-WRAP #QUOTE {
+  background: initial;
+  color: var(--bgInverse, #595959);
+  border: unset;
+  font: 600 13px/1.3 var(--body, "Noto Serif");
+  text-shadow: initial;
+  text-align: center;
+  padding: 20px min(50px, 5vw);
+  position: relative;
+  white-space: pre-line;
+}
+#ak_arcade #QUOTE-WRAP #QUOTE i {
+  color: color-mix(in srgb, var(--bgInverse, #595959) 80%, var(--bg1, #e3e3e3));
+}
+
+.darkmode #ak_arcade {
+  --bgInverse3: #bfbfbf;
+  --bg2: #333;
+}
+.darkmode #ak_arcade .arc_body {
+  outline: 1px solid var(--bg1, #e3e3e3);
+  border-color: var(--bgInverse3, #444);
+}
+.darkmode #ak_arcade .arc_cover, .darkmode #ak_arcade .arc_table#physical > b:nth-of-type(even), .darkmode #ak_arcade .arc_table#dialogue > b:nth-of-type(even) {
+  background-color: var(--main);
+}
+.darkmode #ak_arcade .arc_border, .darkmode #ak_arcade .arc_cover::before, .darkmode #ak_arcade h1::before, .darkmode #ak_arcade .arc_name b, .darkmode #ak_arcade h2 span:nth-of-type(2), .darkmode #ak_arcade .arc_table#physical > b, .darkmode #ak_arcade .arc_table#dialogue > b {
+  background-color: var(--bgInverse3, #444);
+}
+.darkmode #ak_arcade .arc_name, .darkmode #ak_arcade h1 span.ak {
+  color: var(--bgInverse3, #444);
+}
+.darkmode #ak_arcade h2 span:nth-of-type(1), .darkmode #ak_arcade h3, .darkmode #ak_arcade .arc_table#physical > b, .darkmode #ak_arcade .arc_table#dialogue > b, .darkmode #ak_arcade .arc_table#file > b, .darkmode #ak_arcade .arc_name b {
+  color: var(--bg2, #d7d7d7);
+}
+.darkmode #ak_arcade h3 {
+  background: linear-gradient(90deg, var(--main), var(--bgInverse3, #444)) 100% 100%/100% 100%;
 }
 
 @media only screen and (max-width: 700px) {
- #ak_arcade .arc_table#physical{grid-template-columns: 100px 1fr;}
+  #ak_arcade .arc_table#physical {
+    grid-template-columns: 100px 1fr;
+  }
 }
 @media only screen and (max-width: 600px) {
- #ak_arcade .arc_table{grid-template-columns:100%;gap:11px;}
- #ak_arcade .arc_table b{font-size:14px}
- #ak_arcade .arc_table#file > span, #ak_arcade .arc_table#dialogue > span{padding:4px 8px;}
- #ak_arcade .arc_table#talents > span, #ak_arcade .arc_table#skills > span{margin:0 10px 10px;}
+  #ak_arcade .arc_table {
+    grid-template-columns: 100%;
+    gap: 11px;
+  }
+
+  #ak_arcade .arc_table b {
+    font-size: 14px;
+  }
+
+  #ak_arcade .arc_table#file > span, #ak_arcade .arc_table#dialogue > span {
+    padding: 4px 8px;
+  }
+
+  #ak_arcade .arc_table#talents > span, #ak_arcade .arc_table#skills > span {
+    margin: 0 10px 10px;
+  }
 }
 @media only screen and (max-width: 450px) {
- #ak_arcade h1 span.ak{display:none;}
+  #ak_arcade h1 span.ak {
+    display: none;
+  }
 }
