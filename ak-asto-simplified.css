@@ -19,6 +19,7 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   border: 2px solid var(--bg1, #e3e3e3);
   outline: 1px solid var(--bgInverse, #595959);
   margin: 35px auto 0;
+  max-width: 1200px;
 }
 
 #ak_arcade:before {
