@@ -234,6 +234,8 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   outline-offset: -3px;
   -webkit-mask: linear-gradient(BLACK);
           mask: linear-gradient(BLACK);
+  -webkit-clip-path: inset(0);
+  clip-path: inset(0);
 }
 
 #ak_arcade h3::after {
