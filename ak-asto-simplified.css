@@ -340,7 +340,7 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   outline-offset: -3px;
   display: grid;
   align-items: center;
-  align-self: stretch;
+  align-self: flex-start;
 }
 #ak_arcade .arc_table#dialogue > b:nth-of-type(even) {
   background: var(--main);
