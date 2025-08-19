@@ -145,10 +145,12 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   font: 80px/0.8 var(--titleB, "Distrela Bold");
   margin-bottom: 8px;
   padding-top: 20px;
-  margin-top: -35px;
+  margin-top: -27px;
   display: grid;
   text-shadow: var(--lightOutline, var(--bg1, #e3e3e3) 1px 0px 0px, var(--bg1, #e3e3e3) 0.540302px 0.841471px 0px, var(--bg1, #e3e3e3) -0.416147px 0.909297px 0px, var(--bg1, #e3e3e3) -0.989993px 0.14112px 0px, var(--bg1, #e3e3e3) -0.653644px -0.756803px 0px, var(--bg1, #e3e3e3) 0.283662px -0.958924px 0px, var(--bg1, #e3e3e3) 0.96017px -0.279416px 0px);
   text-align: left;
+  word-break: break-all;
+  line-height: .5;
 }
 #ak_arcade .arc_name b {
   font: 900 12px/0.8 var(--body, "Noto Serif");
