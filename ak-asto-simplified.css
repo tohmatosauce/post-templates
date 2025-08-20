@@ -377,6 +377,7 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   color: color-mix(in srgb, var(--bgInverse, #595959) 80%, var(--bg1, #e3e3e3));
 }
 
+#ak_arcade #QUOTE-WRAP tr:nth-of-type(2) {border:0px;}
 #ak_arcade #QUOTE-WRAP tr:nth-of-type(2):before, #ak_arcade #QUOTE-WRAP #QUOTE:before {content:unset;}
 
 .darkmode #ak_arcade {
