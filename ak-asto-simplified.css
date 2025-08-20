@@ -369,10 +369,15 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   padding: 20px min(50px, 5vw);
   position: relative;
   white-space: pre-line;
+  opacity: 1;
+  margin: 0px;
+  border: 0px;
 }
 #ak_arcade #QUOTE-WRAP #QUOTE i {
   color: color-mix(in srgb, var(--bgInverse, #595959) 80%, var(--bg1, #e3e3e3));
 }
+
+#ak_arcade #QUOTE-WRAP tr:nth-of-type(2):before, #ak_arcade #QUOTE-WRAP #QUOTE:before {content:unset;}
 
 .darkmode #ak_arcade {
   --bgInverse3: #bfbfbf;
