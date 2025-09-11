@@ -18,11 +18,11 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   text-shadow: 0px 0px transparent;
   border: 2px solid var(--bg1, #e3e3e3);
   outline: 1px solid var(--bgInverse, #595959);
-  margin: 35px auto 0;
+  margin: 0px auto 0;
   max-width: 1200px;
 }
 
-#ak_arcade:before {
+/* #ak_arcade:before {
   content: "operator records";
   position: absolute;
   bottom: calc(100% + 5px);
@@ -37,7 +37,7 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   color: var(--bg1, #e3e3e3);
   text-align: right;
   box-sizing: border-box;
-}
+} */
 
 #ak_arcade .arc_border {
   background: var(--bgInverse, #595959);
