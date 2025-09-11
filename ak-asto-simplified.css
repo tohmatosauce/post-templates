@@ -49,6 +49,8 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   left: 0;
   -webkit-clip-path: inset(0);
           clip-path: inset(0);
+  -webkit-mask: linear-gradient(black);
+          mask: linear-gradient(black);
 }
 #ak_arcade .arc_border:before {
   content: "";
