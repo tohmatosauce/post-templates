@@ -47,10 +47,6 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   height: 100%;
   top: 0;
   left: 0;
-  -webkit-clip-path: inset(0);
-          clip-path: inset(0);
-  -webkit-mask: linear-gradient(black);
-          mask: linear-gradient(black);
 }
 #ak_arcade .arc_border:before {
   content: "";
@@ -58,7 +54,7 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   left: 0;
   width: 100%;
   height: 100%;
-  position: fixed;
+  position: absolute;
   background-color: var(--main);
   -webkit-mask: var(--astorRender2, url(https://i.ibb.co/v6YjpVgR/Vivi-Transparent2.png)) center/cover;
           mask: var(--astorRender2, url(https://i.ibb.co/v6YjpVgR/Vivi-Transparent2.png)) center/cover;
@@ -153,6 +149,7 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   text-align: left;
   word-break: break-all;
   line-height: .5;
+  gap: 12px;
 }
 #ak_arcade .arc_name b {
   font: 900 12px/0.8 var(--body, "Noto Serif");
@@ -234,7 +231,6 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   color: var(--bg1, #e3e3e3);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  position: relative;
   outline: 2px solid var(--bg1, #e3e3e3);
   outline-offset: -3px;
   -webkit-mask: linear-gradient(BLACK);
@@ -245,7 +241,7 @@ the arknights icon set used was my own making tho & its free for anyone to use o
 
 #ak_arcade h3::after {
   content: "";
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
