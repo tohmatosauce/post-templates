@@ -20,6 +20,8 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   margin: 0px auto 0;
   max-width: 1200px;
   overflow: clip;
+  display: grid;
+  grid-template: 'a' 100% / 100%;
 }
 
 /* #ak_arcade:before {
@@ -43,10 +45,10 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   background: var(--bgInverse, #595959);
   z-index: 0;
   position: sticky; display: block;
-  height: 100vh; max-height: 100vh;
-  margin-bottom: -100vh;
+  height: 100%; max-height: 100vh;
   top: 0;
   left: 0;
+  grid-area: a;
 }
 #ak_arcade .arc_border:before {
   content: "";
@@ -69,6 +71,7 @@ the arknights icon set used was my own making tho & its free for anyone to use o
   border: 2px solid var(--bg1, #e3e3e3);
   outline: 1px solid var(--bgInverse, #595959);
   margin: min(50px, 4.6vw);
+  grid-area: a;
 }
 
 #ak_arcade .arc_cover {
